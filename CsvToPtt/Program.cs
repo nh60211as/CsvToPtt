@@ -30,11 +30,11 @@ namespace CsvToPtt
                 return;
             }
 
-            CsvTable csvTable = new(inputPath,
+            CsvTable csvTable = new CsvTable(inputPath,
                 hasHeader: true,
                 fieldSpace: 2);
 
-            StreamWriter writer = new(outputPath);
+            StreamWriter writer = new StreamWriter(outputPath);
             writer.Write(csvTable.ToString());
             writer.Close();
         }

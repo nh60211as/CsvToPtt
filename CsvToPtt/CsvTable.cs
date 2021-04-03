@@ -29,15 +29,15 @@ namespace CsvToPtt
             HasHeader = hasHeader;
             FieldSpace = fieldSpace;
 
-            FieldSpaceString = new(' ', FieldSpace);
+            FieldSpaceString = new string(' ', FieldSpace);
 
             if (!File.Exists(csvPath))
             {
                 throw new FileNotFoundException(message: $"CSV file {csvPath} does not exist.", fileName: csvPath);
             }
 
-            StreamReader stream = new(csvPath,Encoding.UTF8);
-            TextFieldParser reader = new(stream)
+            StreamReader stream = new StreamReader(csvPath,Encoding.UTF8);
+            TextFieldParser reader = new TextFieldParser(stream)
             {
                 HasFieldsEnclosedInQuotes = true,
                 Delimiters = new string[] { "," },
@@ -90,7 +90,7 @@ namespace CsvToPtt
         {
             List<int> columnsOccupiedSpaceList = GetAllColumnsOccOccupiedSpace();
 
-            StringBuilder stringBuilder = new();
+            StringBuilder stringBuilder = new StringBuilder();
 
             if(HasHeader)
             {
@@ -113,7 +113,7 @@ namespace CsvToPtt
 
         private List<int> GetAllColumnsOccOccupiedSpace()
         {
-            List<int> ans = new(HeaderStrings.Count); // initialize the capacity, not the size
+            List<int> ans = new List<int>(HeaderStrings.Count); // initialize the capacity, not the size
             for (int i = 0; i < HeaderStrings.Count; i++)
             {
                 ans.Add(GetColumnOccupiedSpace(i));
