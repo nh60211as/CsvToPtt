@@ -52,16 +52,16 @@ namespace CsvToPtt
             int occupiedSpace = 0;
             foreach (char c in str)
             {
-                // Uncode character occupy 2 spaces while ANSI character occupy 1 space
+                // Unicode character occupy 2 spaces while ANSI character occupy 1 space
                 occupiedSpace += IsUnicodeCharacter(c) ? 2 : 1;
             }
             return occupiedSpace;
         }
         public static bool IsUnicodeCharacter(char input)
         {
-            const char MaxAnsiCode = (char)255;
+            const char MaxAsciiCode = (char)255;
 
-            return input > MaxAnsiCode;
+            return input > MaxAsciiCode;
         }
     }
 }

@@ -88,7 +88,7 @@ namespace CsvToPtt
 
         public override string ToString()
         {
-            List<int> columnsOccupiedSpaceList = GetAllColumnsOccOccupiedSpace();
+            List<int> columnsOccupiedSpaceList = GetAllColumnsOccupiedSpace();
 
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -111,7 +111,7 @@ namespace CsvToPtt
             return stringBuilder.ToString();
         }
 
-        private List<int> GetAllColumnsOccOccupiedSpace()
+        private List<int> GetAllColumnsOccupiedSpace()
         {
             List<int> ans = new List<int>(HeaderStrings.Count); // initialize the capacity, not the size
             for (int i = 0; i < HeaderStrings.Count; i++)

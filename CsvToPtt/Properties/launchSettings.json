@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CsvToPtt": {
+      "commandName": "Project",
+      "commandLineArgs": "./input.csv"
+    }
+  }
+}
